@@ -1,4 +1,7 @@
-html {
-  height: 100%;
-  width: 100%;
-}
+.bg-Orange {  background-color: rgba(255, 136, 0, 0.89);
+              border-radius: 4px;}
+
+.size85   {   width: 85%;
+              margin: auto;}
+
+.cyanTheme  { background-color: #00ccff52;}
