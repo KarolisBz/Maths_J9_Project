@@ -4,6 +4,9 @@
 .size85   {   width: 85%;
               margin: auto;}
 
-.size50   {   width: 40%;}
+.size100  {   width: 100%;
+              margin: auto;}
+
+.size50   {   width: 50%;}
 
 .cyanTheme  { background-color: #00ccff52;}
