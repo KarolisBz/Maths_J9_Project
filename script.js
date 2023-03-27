@@ -100,11 +100,11 @@ function shiftChanged()
     let shiftToRight = document.getElementById("right").checked;
     let shift = document.getElementById("shift");
 
-    if(shiftToRight)
+    if(shiftToRight && !shift.value == null)
     {
         shift.value = Math.abs(shift.value);
     }
-    else
+    else if(!shift.value == null)
     {
         shift.value = shift.value * -1;
     }
