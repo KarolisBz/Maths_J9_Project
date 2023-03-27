@@ -39,7 +39,7 @@
         <div class="row">
           <div class="col-6">
             <input placeholder="Enter ciphertext" id="inputText" type="text" class="size100" value=""><br>
-            <input placeholder="Enter Shift (int)" id="shift" type="number" class="size50"><input placeholder="Enter keyword" id="keyword" type="text" class="size50">
+            <input placeholder="Enter Shift (int)" onblur="shiftChanged()" id="shift" type="number" class="size50"><input placeholder="Enter keyword" id="keyword" type="text" class="size50">
           </div>
           <div class="col-6">
             <label for="caesar">Caesar Chiper</label>
@@ -49,10 +49,10 @@
             <input name="type" id="vigenere" type="radio">
             &nbsp
             <label for="right">Shift to the right</label>
-            <input name="shift" id="right" type="radio">
+            <input name="shift" id="right" type="radio" checked onclick="shiftChanged()">
             &nbsp
             <label for="left">Shift to the left</label>
-            <input name="shift" id="left" type="radio">
+            <input name="shift" id="left" type="radio" onclick="shiftChanged()">
           </div>
         </div>
 

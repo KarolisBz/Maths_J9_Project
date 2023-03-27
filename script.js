@@ -55,7 +55,6 @@ function caesarChiper(inputText, output)
     let shift = document.getElementById("shift").value;
     const inputArray = inputText.split("");
     let finalOutput = "";
-    output.value = 1;
 
     // loop through the array
     for(i = 0; i < inputArray.length; i++)
@@ -93,5 +92,20 @@ function decipher()
     else
     {
         vigenereChiper(inputText, output)
+    }
+}
+
+function shiftChanged()
+{
+    let shiftToRight = document.getElementById("right").checked;
+    let shift = document.getElementById("shift");
+
+    if(shiftToRight)
+    {
+        shift.value = Math.abs(shift.value);
+    }
+    else
+    {
+        shift.value = shift.value * -1;
     }
 }
