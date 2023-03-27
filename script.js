@@ -1,18 +1,47 @@
 let charToInt = (character) => character.charCodeAt(0);
+let intToChar = (intLetter) => String.fromCharCode(intLetter);
+
+// checks if the ascii values is within the bounds of only letters, if it's past the alphabet it'll return to the start of the
+// array with the remaining shifts added onto it.
+function alphabetBounds(charInt)
+{
+    do
+    {
+        if(charInt > 122) // if letter int is passed z
+        {
+            charInt -= 26;
+        }
+        else if(charInt < 97) // if letter int is below a
+        {
+            charInt += 26;
+        }
+    } while((charInt > 122 || charInt < 97) && charInt != 32) // loops as many times as it takes to set letter int into bounds or if it's a space (int 32)
+
+    return charInt;
+}
 
 function caesarChiper(inputText, output)
 {
-    let shift = document.getElementById("shift").checked;
+    let shift = document.getElementById("shift").value;
     const inputArray = inputText.split("");
     let finalOutput = "";
     output.value = 1;
 
+    // loop through the array
     for(i = 0; i < inputArray.length; i++)
     {
-        finalOutput += charToInt(inputArray[i]) + "\n";
+        let charInt = charToInt(inputArray[i]);
+        console.log(charInt + " letter: " + inputArray[i]);
+
+        // adding shift
+        charInt += Number(shift);
+        // checking bounds
+        charInt = alphabetBounds(charInt);
+        // building the final string to output
+        finalOutput += intToChar(charInt);
     }
 
-    console.log(finalOutput);
+    output.value = finalOutput;
 }
 
 function vigenereChiper(inputText, output)
