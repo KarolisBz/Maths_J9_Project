@@ -1,3 +1,4 @@
+// crptology code by karolis B, index.html, and css template.
 let charToInt = (character) => character.charCodeAt(0);
 let intToChar = (intLetter) => String.fromCharCode(intLetter);
 
@@ -109,3 +110,4 @@ function shiftChanged()
         shift.value = shift.value * -1;
     }
 }
+// end of karolis b script
