@@ -62,10 +62,15 @@ function caesarChiper(inputText, output)
     {
         let charInt = charToInt(inputArray[i]);
 
-        // adding shift
-        charInt += Number(shift);
-        // checking bounds
-        charInt = alphabetBounds(charInt, shift);
+        // ignores spaces
+        if(charInt != 32)
+        {
+            // adding shift
+            charInt += Number(shift);
+            // checking bounds
+            charInt = alphabetBounds(charInt, shift);
+        }
+
         // building the final string to output
         finalOutput += intToChar(charInt);
     }
