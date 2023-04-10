@@ -75,8 +75,42 @@ function caesarChiper(inputText, output)
 
 function vigenereChiper(inputText, output)
 {
-    let keyword = document.getElementById("keyword").checked;
-    output.value = 2;
+    let keyword = document.getElementById("keyword").value;
+    const inputArray = inputText.split("");
+    const keywordArray = keyword.split("");
+    let finalOutput = "";
+    let keywordIllteration = 0;
+
+    // loop through the array
+    for(i = 0; i < inputArray.length; i++)
+    {
+        let charInt = charToInt(inputArray[i]);
+
+        // doesn't add shift if it's a space value
+        if(charInt != 32)
+        {
+            // adding shift (which is the corresponding keyword letter number value)
+            let currentShift; // the shift which we will add
+
+            if(keywordIllteration >= keywordArray.length) // checks if we are in bounds of keyword length, if not resets to start
+            {
+                keywordIllteration = 0;
+            }
+
+            let keyLetter = keywordArray[keywordIllteration]; // fetches keyword letter from array
+            currentShift = charToInt(keyLetter) -96; // fetches number value of keyword letter
+            charInt += Number(currentShift);
+
+            // checking bounds
+            charInt = alphabetBounds(charInt, currentShift);
+            keywordIllteration++;
+        }
+
+        // building the final string to output
+        finalOutput += intToChar(charInt);
+    }
+
+    output.value = finalOutput;
 }
 
 // executes a decipher method based on selected inputs
