@@ -81,6 +81,7 @@ function caesarChiper(inputText, output)
 function vigenereChiper(inputText, output)
 {
     let keyword = document.getElementById("keyword").value;
+    let shiftToRight = document.getElementById("right").checked;
     const inputArray = inputText.split("");
     const keywordArray = keyword.split("");
     let finalOutput = "";
@@ -104,7 +105,17 @@ function vigenereChiper(inputText, output)
 
             let keyLetter = keywordArray[keywordIllteration]; // fetches keyword letter from array
             currentShift = charToInt(keyLetter) -96; // fetches number value of keyword letter
-            charInt += Number(currentShift);
+
+            // if not shift to the right, then subtract shift instead of add
+            if(shiftToRight)
+            {
+                charInt += Number(currentShift);
+            }
+            else
+            {
+                charInt -= Number(currentShift);
+                currentShift = currentShift * -1;
+            }
 
             // checking bounds
             charInt = alphabetBounds(charInt, currentShift);
