@@ -150,3 +150,87 @@ function shiftChanged()
     }
 }
 // end of karolis b script
+
+// Nathan b script
+function spendmoney()
+{
+    var add10 = document.getElementById("moneyspent").innerHTML;
+    for(let i = 0;i <= 9; i++)
+    {
+        add10++;
+    }
+    document.getElementById("moneyspent").innerHTML = add10;
+
+    add10 = document.getElementById("moneyleft").innerHTML;
+    for(let i = 0;i <= 9; i++)
+    {
+        add10++;
+    }
+    document.getElementById("moneyleft").innerHTML = add10;
+
+}
+
+var add10 = 0;
+var moneystorage = 0;
+function onbuttonclick()
+{   
+    add10 = document.getElementById("moneyleft").innerHTML;
+    add10 -= 1;
+    document.getElementById("moneyleft").innerHTML = add10;   
+    
+    console.log(add10);    
+    if(add10 >= 1)
+    {
+  var increasepity = document.getElementById("pityvalue").innerHTML;
+  increasepity++;
+  document.getElementById("pityvalue").innerHTML = increasepity;
+
+  var rollvalue;
+  rollvalue = Math.pow(Math.floor(Math.random()*10), (increasepity * 0.029));
+  rollvalue = Math.round(rollvalue);
+  console.log(rollvalue);
+
+  if(rollvalue < 30)
+  {
+    document.getElementById("p").classList.remove('bg-primary');
+    document.getElementById("p").classList.remove('bg-warning');
+    document.getElementById("p").classList.remove('bg-danger');
+    document.getElementById("p").innerHTML = "Common";
+    document.getElementById("p").classList.add('bg-secondary');
+  }
+  else if(rollvalue < 60)
+  {
+    document.getElementById("p").classList.remove('bg-warning');
+    document.getElementById("p").classList.remove('bg-danger');
+    document.getElementById("p").classList.remove('bg-secondary');
+    document.getElementById("p").innerHTML = "Rare";
+    document.getElementById("p").classList.add('bg-primary');
+  }
+  else if(rollvalue > 60 && rollvalue < 100)
+  {
+    document.getElementById("p").classList.remove('bg-primary');
+    document.getElementById("p").classList.remove('bg-warning');
+    document.getElementById("p").classList.remove('bg-secondary');
+    document.getElementById("p").innerHTML = "Epic";
+    document.getElementById("p").classList.add('bg-danger');
+  }
+  else
+  {
+    document.getElementById("p").classList.remove('bg-primary');
+    document.getElementById("p").classList.remove('bg-warning');
+    document.getElementById("p").classList.remove('bg-danger');
+    document.getElementById("p").innerHTML = "Legendary";
+    document.getElementById("p").classList.add('bg-warning');
+    document.getElementById("pityvalue").innerHTML = 0;
+  }
+}
+else
+{   
+    document.getElementById("p").classList.remove('bg-secondary');
+    document.getElementById("p").classList.remove('bg-primary');
+    document.getElementById("p").classList.remove('bg-warning');
+    document.getElementById("p").classList.remove('bg-danger');
+    document.getElementById("p").innerHTML = "Please add money";
+}
+}
+//End of Nathan B script
